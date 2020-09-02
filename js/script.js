@@ -5,6 +5,7 @@ let display = document.getElementById('display-colors');
 let baseColor = [244,246,248];
 let blendColor= [237,49,49];
 
+//the neutral color;
 let basePalette = [
     [245,245,245],
     [217,217,217],
@@ -16,49 +17,6 @@ let basePalette = [
     [64,64,64],
     [38,38,38],
 ]
-// let finalColor=[]; //252,218,219;
-
-// function blendOverlay(baseColor, blendColor){
-//     return (base < 128) ? ((2 * base * adj) / 255) : (255 - (2 * (255 - base) * (255 - adj) / 255)); }
-// }
-
-// There are two part of formula:
-// First part: If Lower Layer Value > 127.5, then do the following -
-// Value Unit = (255-Lower Layer Value)/127.5
-// Min Value = Lower Layer Value - (255-Lower Layer Value)
-// Overlay = (Upper Layer Value * Value Unit) + Min Value
-
-
-
-// Second part: If Lower Layer Value < 127.5, then do the following -
-// Value Unit=Lower Layer Value/127.5
-// Overlay = Upper Layer Value * Value Unit
-// From the formual we can see that the final result is much depend on the upper layer value. If the upper layer value is higher(lighter), then the final result is more likely to be lighter.
-
-// function blendOverlay1(baseColor,blendColor){
-
-//     let finalColor =[];
-
-//     for(var i=0; i<baseColor.length; i++){
-//         if (baseColor[i]>127.5){
-//             let a = (255-baseColor[i])/127.5;
-//             let b = baseColor[i] - (255-baseColor[i]);
-//             let c = (blendColor[i] * a) + b;
-//             finalColor[i] = c;
-//         } else if(baseColor[i]<127.5){
-//             let a = baseColor[i]/127.5;
-//             let c = (blendColor[i] * a);
-//              v[i] = c;
-//         }
-//     }
-//     console.log('blendOverlay1');
-//     console.log(finalColor);
-//     return finalColor;
-
-// }
-
-// blendOverlay1(baseColor,blendColor);
-
 
 function blendOverlay(baseColor,blendColor){
 
@@ -107,3 +65,9 @@ function blendPalette(basePalette,blendColor){
 blendPalette(basePalette,blendColor);
 
 
+
+//render base palette
+renderPalette(basePalette);
+//render overlay color
+//let user select and  change overlay color, update overlay color
+//generate the hex values of the the final palette in scss variable form.
