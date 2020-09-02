@@ -1,6 +1,8 @@
 
 .display-colors{
     display: flex;
+    width: 900px;
+    flex-wrap: wrap;
 }
 .color-box{
     display: block;
